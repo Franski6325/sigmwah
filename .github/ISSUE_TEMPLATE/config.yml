@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Wazuh documentation
+    url: https://documentation.wazuh.com/
+    about: Manager install, custom rules, and wazuh-logtest
+  - name: Sigma / pySigma
+    url: https://github.com/SigmaHQ/pySigma
+    about: Sigma language and the library Sigmwah converts with

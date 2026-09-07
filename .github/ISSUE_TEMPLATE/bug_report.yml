@@ -1,0 +1,50 @@
+name: Bug report
+description: Something converted wrong, crashed, or produced invalid Wazuh XML
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste real malware, credentials, or production telemetry.
+        Prefer a **synthetic** Sigma YAML that reproduces the issue.
+  - type: input
+    id: version
+    attributes:
+      label: Sigmwah version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.12.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Target
+      options: ["wazuh4", "wazuh5"]
+    validations:
+      required: true
+  - type: textarea
+    id: sigma
+    attributes:
+      label: Minimal Sigma YAML (synthetic)
+      render: yaml
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened (XML snippet, traceback, or report line)
+    validations:
+      required: true

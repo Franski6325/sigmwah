@@ -1,0 +1,23 @@
+name: Feature request
+description: Mapping, modifier, or correlation support that Wazuh can actually express
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What cannot be converted today, and why it matters on a Wazuh 4.x manager.
+    validations:
+      required: true
+  - type: textarea
+    id: wazuh
+    attributes:
+      label: Wazuh equivalent
+      description: Which analysisd XML construct should we emit? Link a Wazuh ruleset file if you have one.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        If Wazuh cannot express the Sigma construct, the right behavior is a **skip with a reason**, not a lossy conversion.

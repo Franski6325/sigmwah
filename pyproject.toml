@@ -43,6 +43,7 @@ sigmwah = "sigmwah.cli:app"
 
 [project.urls]
 Documentation = "docs/README.md"
+Changelog = "CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sigmwah"]
