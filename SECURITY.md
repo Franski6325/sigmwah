@@ -13,7 +13,9 @@ Please report privately if you find:
 
 Do **not** open a public issue with a working exploit.
 
-Email the maintainer at the address on the GitHub profile, or open a private security advisory once the GitHub repository exists.
+Email the maintainer listed on the GitHub profile, or open a private advisory:
+
+https://github.com/Franski6325/sigmwah/security/advisories/new
 
 ## What Sigmwah will not do
 

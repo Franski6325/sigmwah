@@ -1,5 +1,8 @@
 # Runbook: loading Sigmwah rules into Wazuh 4.x
 
+This is the operator path after `sigmwah convert`. It does not replace Wazuh’s own
+documentation. Use a lab manager first.
+
 ## Install the XML
 
 1. Convert rules on a workstation (Python 3.11+):

@@ -5,6 +5,8 @@ Thank you for helping. Sigmwah is a community converter. Keep the bar high: corr
 ## Development setup
 
 ```bash
+git clone https://github.com/Franski6325/sigmwah.git
+cd sigmwah
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -30,3 +32,11 @@ Python **3.11** or **3.12**. Optional Docker is only for `pytest -m docker` / `s
 2. Add or update tests.
 3. Run ruff, mypy, and `pytest -m "not docker"`.
 4. If you change field mappings, document the Wazuh ruleset file you checked in `docs/mappings.md`.
+
+## GitHub sidebar (About)
+
+The GitHub **Description** field is not a file in git. Maintainer: Settings → General, then paste:
+
+- Description: `Convert Sigma detections (pySigma) into Wazuh 4.x analysisd XML. Honest skips, persistent SIDs, no vendored SigmaHQ rules.`
+- Website: `https://github.com/Franski6325/sigmwah`
+- Topics: `sigma`, `wazuh`, `pysigma`, `siem`, `detection-engineering`, `python`

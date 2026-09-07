@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: Sigmwah
+message: If you use Sigmwah, cite this software record.
+type: software
+authors:
+  - family-names: Tannoia
+    given-names: Francesco
+repository-code: "https://github.com/Franski6325/sigmwah"
+url: "https://github.com/Franski6325/sigmwah"
+license: Apache-2.0
+version: "0.1.0"
+date-released: "2026-09-07"
+abstract: >
+  Sigmwah converts Sigma detection rules through pySigma into Wazuh 4.x
+  analysisd XML. Skips that Wazuh cannot express are reported instead of
+  guessed. SigmaHQ rules are not vendored. Community project, not affiliated
+  with Wazuh Inc. or SigmaHQ.
+keywords:
+  - sigma
+  - wazuh
+  - pysigma
+  - siem
+  - detection-engineering

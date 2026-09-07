@@ -5,12 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "sigmwah"
 version = "0.1.0"
-description = "Convert Sigma detection rules (pySigma) into Wazuh 4.x XML rulesets."
+description = "Convert Sigma detections (pySigma) into Wazuh 4.x analysisd XML. Honest skips, persistent SIDs, no vendored SigmaHQ rules."
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 requires-python = ">=3.11"
-authors = [{ name = "Sigmwah contributors" }]
+authors = [{ name = "Francesco Tannoia" }]
 keywords = ["sigma", "wazuh", "pysigma", "siem", "detection-engineering"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -42,8 +42,11 @@ dev = [
 sigmwah = "sigmwah.cli:app"
 
 [project.urls]
-Documentation = "docs/README.md"
-Changelog = "CHANGELOG.md"
+Homepage = "https://github.com/Franski6325/sigmwah"
+Documentation = "https://github.com/Franski6325/sigmwah#readme"
+Issues = "https://github.com/Franski6325/sigmwah/issues"
+Source = "https://github.com/Franski6325/sigmwah"
+Changelog = "https://github.com/Franski6325/sigmwah/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sigmwah"]
@@ -67,6 +70,9 @@ include = [
   "README.md",
   "CHANGELOG.md",
   "TODO.md",
+  "CONTRIBUTING.md",
+  "SECURITY.md",
+  "CITATION.cff",
   "pyproject.toml",
 ]
 

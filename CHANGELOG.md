@@ -15,3 +15,4 @@ All notable changes to Sigmwah are documented in this file.
 - Sigma 2.0 `event_count` correlation support; other correlation types reported as skipped.
 - Experimental `--target wazuh5` YAML emitter.
 - Golden tests, pySigma API contract tests, GitHub Actions on Python 3.11/3.12.
+- Public repository: https://github.com/Franski6325/sigmwah
