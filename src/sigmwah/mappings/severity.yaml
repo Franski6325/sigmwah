@@ -1,0 +1,13 @@
+severity:
+  informational: 3
+  low: 4
+  medium: 6
+  high: 10
+  critical: 12
+
+status_groups:
+  experimental: sigma_experimental
+  test: sigma_test
+  stable: sigma_stable
+  deprecated: sigma_deprecated
+  unsupported: sigma_unsupported

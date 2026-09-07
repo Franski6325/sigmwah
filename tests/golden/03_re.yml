@@ -1,0 +1,13 @@
+title: Synthetic Regex Image
+id: 11111111-1111-4111-8111-111111111113
+status: stable
+author: Sigmwah Test Suite
+date: 2026-01-01
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|re: '(?i).*(cmd|powershell)\\.exe$'
+  condition: selection
+level: low

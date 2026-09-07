@@ -1,0 +1,95 @@
+# Linux logsource entry conditions verified against Wazuh 4.14 ruleset:
+# 0095-sshd_rules.xml rule 5700 (decoded_as sshd), 0365-auditd_rules.xml 80700.
+logsources:
+  - id: linux-sshd
+    product: linux
+    service: sshd
+    groups: [sigma, linux, sshd]
+    entry:
+      if_sid: "5700"
+  - id: linux-auth
+    product: linux
+    service: auth
+    groups: [sigma, linux, authentication]
+    entry:
+      if_sid: "5500"
+  - id: linux-sudo
+    product: linux
+    service: sudo
+    groups: [sigma, linux]
+    entry:
+      program_name: "^sudo$"
+  - id: linux-su
+    product: linux
+    service: su
+    groups: [sigma, linux]
+    entry:
+      program_name: "^su$"
+  - id: linux-auditd
+    product: linux
+    service: auditd
+    groups: [sigma, linux, auditd]
+    entry:
+      if_sid: "80700"
+  - id: linux-syslog
+    product: linux
+    service: syslog
+    groups: [sigma, linux, syslog]
+    entry:
+      decoded_as: "syslog"
+  - id: linux-cron
+    product: linux
+    service: cron
+    groups: [sigma, linux]
+    entry:
+      program_name: "^CRON$|^cron$"
+  - id: linux-authentication
+    product: linux
+    category: authentication
+    groups: [sigma, linux, authentication]
+    entry:
+      if_sid: "5500"
+  - id: linux-fallback
+    product: linux
+    groups: [sigma, linux]
+    entry:
+      decoded_as: "syslog"
+
+fields:
+  User: dstuser
+  user: dstuser
+  USER: dstuser
+  srcuser: srcuser
+  dstuser: dstuser
+  srcip: srcip
+  dstip: dstip
+  SourceIp: srcip
+  DestinationIp: dstip
+  src_ip: srcip
+  dst_ip: dstip
+  SourcePort: srcport
+  DestinationPort: dstport
+  srcport: srcport
+  dstport: dstport
+  Command: command
+  CMD: command
+  exe: audit.exe
+  cwd: audit.cwd
+  key: audit.key
+  type: audit.type
+  auid: audit.auid
+  uid: audit.uid
+  euid: audit.euid
+  gid: audit.gid
+  pid: audit.pid
+  ppid: audit.ppid
+  syscall: audit.syscall
+  success: audit.success
+  tty: audit.tty
+  terminal: audit.terminal
+  res: audit.res
+  acct: dstuser
+  PAM_USER: dstuser
+  PAM_RHOST: srcip
+  PAM_TTY: tty
+  PAM_SERVICE: extra_data

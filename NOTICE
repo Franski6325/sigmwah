@@ -1,0 +1,48 @@
+Sigmwah
+Copyright 2026 Sigmwah contributors
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file in the project root.
+
+Sigmwah is a community project. It is not affiliated with, endorsed by,
+or sponsored by Wazuh Inc. or SigmaHQ.
+
+------------------------------------------------------------------------------
+Third-party notices
+------------------------------------------------------------------------------
+
+pySigma (runtime dependency)
+  Project: https://github.com/SigmaHQ/pySigma
+  PyPI: https://pypi.org/project/pySigma/
+  License: GNU Lesser General Public License v2.1 only (LGPL-2.1-only)
+  Version verified at packaging time: 1.5.0
+  Notes: Sigmwah links to pySigma dynamically via pip. This repository does
+  not vendor pySigma source code. The LGPL-2.1 terms apply to pySigma itself.
+
+sigma-cli (related project, NOT a Sigmwah dependency)
+  Project: https://github.com/SigmaHQ/sigma-cli
+  PyPI: https://pypi.org/project/sigma-cli/
+  License: GNU Lesser General Public License v2.1 or later (LGPL-2.1-or-later)
+  Version noted: 3.1.0
+  Notes: Listed because Sigmwah implements a pySigma-style backend that can
+  be discovered alongside sigma-cli plugins. Sigmwah's CLI is independent.
+
+SigmaHQ detection rules (NOT shipped in this package)
+  Project: https://github.com/SigmaHQ/sigma
+  License: Detection Rule License 1.1 (SPDX: DRL-1.1)
+  License text: https://github.com/SigmaHQ/Detection-Rule-License
+  Notes: Users may download SigmaHQ rules with `sigmwah download-sigmahq`.
+  Converted Wazuh XML retains Sigma title, id, author, date, and references
+  plus the attribution line:
+    Converted with Sigmwah from SigmaHQ (DRL 1.1)
+  The DRL requires author attribution when reproducing or modifying rules
+  and when showing matches.
+
+Other Python runtime dependencies (typical OSI-permissive licenses;
+see each package for the authoritative license text):
+  - typer: MIT License
+  - pydantic: MIT License
+  - PyYAML: MIT License
+
+Wazuh is a trademark of Wazuh Inc. Sigma is a project of SigmaHQ.
+------------------------------------------------------------------------------

@@ -1,0 +1,290 @@
+# Wazuh 4.14.7 empirically verified (ruleset files 0575-win-base_rules.xml,
+# 0595-win-sysmon_rules.xml). Field names are decoder fields used in <field name="">
+# (no data. prefix). Alert JSON paths are data.<decoder-field>.
+logsources:
+  - id: windows-sysmon-process-creation
+    product: windows
+    category: process_creation
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event1
+  - id: windows-sysmon-file-create-time
+    product: windows
+    category: file_change
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event2
+  - id: windows-sysmon-network
+    product: windows
+    category: network_connection
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event3
+  - id: windows-sysmon-process-termination
+    product: windows
+    category: process_termination
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event5
+  - id: windows-sysmon-driver-load
+    product: windows
+    category: driver_load
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event6
+  - id: windows-sysmon-image-load
+    product: windows
+    category: image_load
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event7
+  - id: windows-sysmon-create-remote-thread
+    product: windows
+    category: create_remote_thread
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event8
+  - id: windows-sysmon-raw-access
+    product: windows
+    category: raw_access_thread
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event9
+  - id: windows-sysmon-process-access
+    product: windows
+    category: process_access
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_10
+  - id: windows-sysmon-file-event
+    product: windows
+    category: file_event
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_11
+  - id: windows-sysmon-registry
+    product: windows
+    category: registry_event
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_13
+  - id: windows-sysmon-registry-add
+    product: windows
+    category: registry_add
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_12
+  - id: windows-sysmon-registry-delete
+    product: windows
+    category: registry_delete
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_12
+  - id: windows-sysmon-registry-set
+    product: windows
+    category: registry_set
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_13
+  - id: windows-sysmon-pipe-created
+    product: windows
+    category: pipe_created
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_17
+  - id: windows-sysmon-wmi
+    product: windows
+    category: wmi_event
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_19
+  - id: windows-sysmon-dns
+    product: windows
+    category: dns_query
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_22
+  - id: windows-sysmon-file-delete
+    product: windows
+    category: file_delete
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_23
+  - id: windows-sysmon-clipboard
+    product: windows
+    category: clipboard_capture
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_24
+  - id: windows-sysmon-process-tampering
+    product: windows
+    category: process_tampering
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_group: sysmon_event_25
+  - id: windows-security
+    product: windows
+    service: security
+    groups: [sigma, windows, windows_security]
+    entry:
+      if_sid: "60001"
+  - id: windows-system
+    product: windows
+    service: system
+    groups: [sigma, windows]
+    entry:
+      if_sid: "60002"
+  - id: windows-application
+    product: windows
+    service: application
+    groups: [sigma, windows]
+    entry:
+      if_sid: "60003"
+  - id: windows-sysmon-channel
+    product: windows
+    service: sysmon
+    groups: [sigma, windows, sysmon]
+    entry:
+      if_sid: "60004"
+  - id: windows-powershell
+    product: windows
+    service: powershell
+    groups: [sigma, windows, powershell]
+    entry:
+      if_sid: "60000"
+      fields:
+        win.system.channel: "^Microsoft-Windows-PowerShell/Operational$|^Windows PowerShell$"
+  - id: windows-fallback
+    product: windows
+    groups: [sigma, windows]
+    entry:
+      if_sid: "60000"
+
+fields:
+  EventID: win.system.eventID
+  Provider_Name: win.system.providerName
+  Channel: win.system.channel
+  Computer: win.system.computer
+  Level: win.system.level
+  Task: win.system.task
+  Opcode: win.system.opcode
+  Keywords: win.system.keywords
+  EventRecordID: win.system.eventRecordID
+  ActivityID: win.system.activityID
+  ProcessID: win.system.processID
+  ThreadID: win.system.threadID
+  Message: win.system.message
+  SeverityValue: win.system.severityValue
+  CommandLine: win.eventdata.commandLine
+  Image: win.eventdata.image
+  ParentImage: win.eventdata.parentImage
+  ParentCommandLine: win.eventdata.parentCommandLine
+  User: win.eventdata.user
+  IntegrityLevel: win.eventdata.integrityLevel
+  CurrentDirectory: win.eventdata.currentDirectory
+  LogonId: win.eventdata.logonId
+  TerminalSessionId: win.eventdata.terminalSessionId
+  UtcTime: win.eventdata.utcTime
+  ProcessId: win.eventdata.processId
+  ParentProcessId: win.eventdata.parentProcessId
+  ParentProcessGuid: win.eventdata.parentProcessGuid
+  ProcessGuid: win.eventdata.processGuid
+  Hashes: win.eventdata.hashes
+  Company: win.eventdata.company
+  Description: win.eventdata.description
+  Product: win.eventdata.product
+  FileVersion: win.eventdata.fileVersion
+  OriginalFileName: win.eventdata.originalFileName
+  TargetFilename: win.eventdata.targetFilename
+  CreationUtcTime: win.eventdata.creationUtcTime
+  PreviousCreationUtcTime: win.eventdata.previousCreationUtcTime
+  DestinationHostname: win.eventdata.destinationHostname
+  DestinationIp: win.eventdata.destinationIp
+  DestinationPort: win.eventdata.destinationPort
+  DestinationPortName: win.eventdata.destinationPortName
+  DestinationIsIpv6: win.eventdata.destinationIsIpv6
+  SourceHostname: win.eventdata.sourceHostname
+  SourceIp: win.eventdata.sourceIp
+  SourcePort: win.eventdata.sourcePort
+  SourcePortName: win.eventdata.sourcePortName
+  SourceIsIpv6: win.eventdata.sourceIsIpv6
+  Initiated: win.eventdata.initiated
+  Protocol: win.eventdata.protocol
+  ImageLoaded: win.eventdata.imageLoaded
+  Signed: win.eventdata.signed
+  Signature: win.eventdata.signature
+  SignatureStatus: win.eventdata.signatureStatus
+  StartModule: win.eventdata.startModule
+  StartFunction: win.eventdata.startFunction
+  SourceImage: win.eventdata.sourceImage
+  TargetImage: win.eventdata.targetImage
+  GrantedAccess: win.eventdata.grantedAccess
+  CallTrace: win.eventdata.callTrace
+  TargetObject: win.eventdata.targetObject
+  Details: win.eventdata.details
+  EventType: win.eventdata.eventType
+  NewName: win.eventdata.newName
+  PipeName: win.eventdata.pipeName
+  QueryName: win.eventdata.queryName
+  QueryResults: win.eventdata.queryResults
+  QueryStatus: win.eventdata.queryStatus
+  Operation: win.eventdata.operation
+  EventNamespace: win.eventdata.eventNamespace
+  Name: win.eventdata.name
+  Query: win.eventdata.query
+  Type: win.eventdata.type
+  Destination: win.eventdata.destination
+  Consumer: win.eventdata.consumer
+  Filter: win.eventdata.filter
+  RuleName: win.eventdata.ruleName
+  Archived: win.eventdata.archived
+  IsExecutable: win.eventdata.isExecutable
+  ClientInfo: win.eventdata.clientInfo
+  Session: win.eventdata.session
+  TargetUserName: win.eventdata.targetUserName
+  TargetDomainName: win.eventdata.targetDomainName
+  TargetSid: win.eventdata.targetSid
+  SubjectUserName: win.eventdata.subjectUserName
+  SubjectDomainName: win.eventdata.subjectDomainName
+  SubjectUserSid: win.eventdata.subjectUserSid
+  SubjectLogonId: win.eventdata.subjectLogonId
+  IpAddress: win.eventdata.ipAddress
+  IpPort: win.eventdata.ipPort
+  WorkstationName: win.eventdata.workstationName
+  LogonType: win.eventdata.logonType
+  LogonProcessName: win.eventdata.logonProcessName
+  AuthenticationPackageName: win.eventdata.authenticationPackageName
+  Status: win.eventdata.status
+  SubStatus: win.eventdata.subStatus
+  FailureReason: win.eventdata.failureReason
+  ObjectName: win.eventdata.objectName
+  ObjectType: win.eventdata.objectType
+  ObjectServer: win.eventdata.objectServer
+  AccessMask: win.eventdata.accessMask
+  AccessList: win.eventdata.accessList
+  ServiceName: win.eventdata.serviceName
+  ServiceFileName: win.eventdata.imagePath
+  ImagePath: win.eventdata.imagePath
+  StartType: win.eventdata.startType
+  ServiceType: win.eventdata.serviceType
+  NewProcessName: win.eventdata.newProcessName
+  TokenElevationType: win.eventdata.tokenElevationType
+  MandatoryLabel: win.eventdata.mandatoryLabel
+  ScriptBlockText: win.eventdata.scriptBlockText
+  Payload: win.eventdata.payload
+  HostApplication: win.eventdata.hostApplication
+  HostName: win.eventdata.hostName
+  EngineVersion: win.eventdata.engineVersion
+  RunspaceId: win.eventdata.runspaceId
+  PipelineId: win.eventdata.pipelineId
+  CommandName: win.eventdata.commandName
+  CommandType: win.eventdata.commandType
+  ScriptName: win.eventdata.scriptName
+  Path: win.eventdata.path
+  NewProcessId: win.eventdata.newProcessId
+  ParentProcessName: win.eventdata.parentProcessName
+  TargetLogonId: win.eventdata.targetLogonId
+  TransmittedServices: win.eventdata.transmittedServices
+  LmPackageName: win.eventdata.lmPackageName
+  KeyLength: win.eventdata.keyLength
+  ProcessName: win.eventdata.processName

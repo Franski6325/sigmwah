@@ -1,0 +1,80 @@
+# Web, proxy, and firewall sources. Entry uses program_name because Wazuh
+# syslog-family decoders key off the predecoded program name.
+logsources:
+  - id: web-nginx
+    product: nginx
+    groups: [sigma, web, nginx]
+    entry:
+      program_name: "^nginx$"
+  - id: web-apache
+    product: apache
+    groups: [sigma, web, apache]
+    entry:
+      program_name: "^apache2$|^httpd$"
+  - id: web-httpd
+    product: linux
+    service: httpd
+    groups: [sigma, web, apache]
+    entry:
+      program_name: "^httpd$|^apache2$"
+  - id: proxy-squid
+    product: squid
+    groups: [sigma, proxy, squid]
+    entry:
+      program_name: "^squid$"
+  - id: firewall-iptables
+    product: linux
+    service: iptables
+    groups: [sigma, firewall, iptables]
+    entry:
+      program_name: "^kernel$"
+  - id: firewall-pf
+    product: freebsd
+    service: pf
+    groups: [sigma, firewall]
+    entry:
+      program_name: "^filterlog$"
+  - id: web-fallback
+    category: webserver
+    groups: [sigma, web]
+    entry:
+      program_name: "^nginx$|^apache2$|^httpd$"
+  - id: proxy-fallback
+    category: proxy
+    groups: [sigma, proxy]
+    entry:
+      program_name: "^squid$|^proxy$"
+  - id: firewall-fallback
+    category: firewall
+    groups: [sigma, firewall]
+    entry:
+      program_name: "^kernel$|^filterlog$|^firewalld$"
+
+fields:
+  c-ip: srcip
+  cs-method: url
+  cs-uri: url
+  cs-uri-stem: url
+  cs-uri-query: url
+  cs-user-agent: extra_data
+  sc-status: id
+  cs-host: dstip
+  cs-username: dstuser
+  url: url
+  uri: url
+  c-uri: url
+  method: extra_data
+  status: id
+  user-agent: extra_data
+  cs-bytes: extra_data
+  sc-bytes: extra_data
+  dst_ip: dstip
+  src_ip: srcip
+  dest_ip: dstip
+  destination.ip: dstip
+  source.ip: srcip
+  http.request.method: extra_data
+  http.response.status_code: id
+  url.original: url
+  url.path: url
+  user_agent.original: extra_data

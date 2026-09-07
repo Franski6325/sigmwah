@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="sigma,linux,sshd,sigma_test,">
+  <rule id="100100" level="4">
+    <!-- Sigma title: Synthetic SSHD Keyword | Sigma id: 11111111-1111-4111-8111-111111111119 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <info type="comment">Sigma title: Synthetic SSHD Keyword | Sigma id: 11111111-1111-4111-8111-111111111119 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1)</info>
+    <if_sid>5700</if_sid>
+    <regex type="pcre2">(?i)^Failed password$</regex>
+    <options>no_full_log</options>
+    <description>Synthetic SSHD Keyword</description>
+    <group>sigma,linux,sshd,sigma_test,</group>
+  </rule>
+  <rule id="100101" level="4">
+    <!-- Sigma title: Synthetic SSHD Keyword | Sigma id: 11111111-1111-4111-8111-111111111119 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <info type="comment">Sigma title: Synthetic SSHD Keyword | Sigma id: 11111111-1111-4111-8111-111111111119 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1)</info>
+    <if_sid>5700</if_sid>
+    <regex type="pcre2">(?i)^Invalid user$</regex>
+    <options>no_full_log</options>
+    <description>Synthetic SSHD Keyword</description>
+    <group>sigma,linux,sshd,sigma_test,</group>
+  </rule>
+</group>

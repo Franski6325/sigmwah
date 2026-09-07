@@ -1,0 +1,20 @@
+title: Synthetic PowerShell Image
+id: 11111111-1111-4111-8111-111111111111
+status: experimental
+description: Synthetic process-creation rule for Sigmwah golden tests.
+author: Sigmwah Test Suite
+date: 2026-01-01
+references:
+  - https://example.invalid/sigmwah-tests
+falsepositives:
+  - Administrator troubleshooting
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|contains: powershell
+  condition: selection
+level: medium
+tags:
+  - attack.t1059.001

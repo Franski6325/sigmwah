@@ -1,0 +1,14 @@
+title: Synthetic SSHD Keyword
+id: 11111111-1111-4111-8111-111111111119
+status: test
+author: Sigmwah Test Suite
+date: 2026-01-01
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    - Failed password
+    - Invalid user
+  condition: selection
+level: low

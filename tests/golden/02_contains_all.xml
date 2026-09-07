@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="sigma,windows,sysmon,sigma_test,">
+  <rule id="100100" level="10">
+    <!-- Sigma title: Synthetic Contains All CommandLine | Sigma id: 11111111-1111-4111-8111-111111111112 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <info type="comment">Sigma title: Synthetic Contains All CommandLine | Sigma id: 11111111-1111-4111-8111-111111111112 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1)</info>
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i).*Bypass.*</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i).*Invoke-.*</field>
+    <options>no_full_log</options>
+    <description>Synthetic Contains All CommandLine</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>sigma,windows,sysmon,sigma_test,</group>
+  </rule>
+</group>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="sigma,windows,sysmon,sigma_experimental,">
+  <rule id="100100" level="3">
+    <!-- Sigma title: Synthetic Process Create | Sigma id: 11111111-1111-4111-8111-aaaaaaaaaaa1 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <info type="comment">Sigma title: Synthetic Process Create | Sigma id: 11111111-1111-4111-8111-aaaaaaaaaaa1 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1)</info>
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i).*\\cmd\.exe</field>
+    <options>no_full_log</options>
+    <description>Synthetic Process Create</description>
+    <group>sigma,windows,sysmon,sigma_experimental,</group>
+  </rule>
+</group>
+<group name="sigma,correlation,sigma_corr_11111111_1111_4111_8111_aaaaaaaaaaa2,">
+  <rule id="100101" level="10" frequency="5" timeframe="120">
+    <!-- Sigma title: Synthetic Event Count | Sigma id: 11111111-1111-4111-8111-aaaaaaaaaaa2 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <info type="comment">Sigma title: Synthetic Event Count | Sigma id: 11111111-1111-4111-8111-aaaaaaaaaaa2 | Author: Sigmwah Test Suite | Date: 2026-01-01 | References: - | False positives: - | Converted with Sigmwah from SigmaHQ (DRL 1.1)</info>
+    <if_matched_sid>100100</if_matched_sid>
+    <same_field>win.eventdata.image</same_field>
+    <description>Synthetic Event Count</description>
+    <group>sigma,correlation,sigma_corr_11111111_1111_4111_8111_aaaaaaaaaaa2,</group>
+  </rule>
+</group>
