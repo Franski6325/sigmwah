@@ -1,26 +1,45 @@
 <p align="center">
-  <img src="docs/assets/sigmwah-hero.png" alt="Sigmwah — Sigma to Wazuh 4.x detection engineering" width="100%">
+  <img src="docs/assets/sigmwah-hero.png" alt="Sigmwah — convert Sigma detection rules to Wazuh 4.x XML for SIEM detection engineering" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/assets/sigmwah-icon.png" alt="Sigmwah mark" width="96">
+  <img src="docs/assets/sigmwah-icon.png" alt="Sigmwah logo: sigma mark in a hexagon" width="96">
 </p>
 
 <h1 align="center">Sigmwah</h1>
 
 <p align="center">
-  <strong>Turn Sigma detections into Wazuh 4.x XML — without guessing.</strong><br>
-  A pySigma backend and batch CLI for <code>analysisd</code>. Original work. Apache-2.0.
+  <strong>Sigma → Wazuh 4.x XML</strong> for SIEM detection engineering.<br>
+  pySigma backend + CLI. Original Apache-2.0 software. No guessed rules.
 </p>
 
 <p align="center">
-  <a href="https://github.com/Franski6325/sigmwah/actions/workflows/ci.yml"><img src="https://github.com/Franski6325/sigmwah/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.11 and 3.12">
+  <a href="https://github.com/Franski6325/sigmwah/actions/workflows/ci.yml"><img src="https://github.com/Franski6325/sigmwah/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <a href="https://github.com/Franski6325/sigmwah/stargazers"><img src="https://img.shields.io/github/stars/Franski6325/sigmwah?style=flat-square" alt="GitHub stars"></a>
+  <a href="https://github.com/Franski6325/sigmwah/issues"><img src="https://img.shields.io/github/issues/Franski6325/sigmwah?style=flat-square" alt="GitHub issues"></a>
   <img src="https://img.shields.io/github/license/Franski6325/sigmwah?style=flat-square" alt="Apache License 2.0">
+  <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.11 and 3.12">
   <img src="https://img.shields.io/badge/pySigma-1.5-5B8DEF?style=flat-square" alt="pySigma 1.5">
   <img src="https://img.shields.io/badge/Wazuh-4.14.7-00A9E0?style=flat-square" alt="Wazuh 4.14.7">
-  <img src="https://img.shields.io/badge/coverage-%E2%89%A585%25-2EE6A6?style=flat-square" alt="Coverage at least 85 percent">
-  <img src="https://img.shields.io/badge/release-0.1.0-2EE6A6?style=flat-square" alt="0.1.0">
+  <img src="https://img.shields.io/github/v/tag/Franski6325/sigmwah?style=flat-square&label=release" alt="Latest tag">
+</p>
+
+<p align="center">
+  <a href="https://github.com/topics/sigma"><img src="https://img.shields.io/badge/sigma-111827?style=flat-square" alt="Topic sigma"></a>
+  <a href="https://github.com/topics/wazuh"><img src="https://img.shields.io/badge/wazuh-111827?style=flat-square" alt="Topic wazuh"></a>
+  <a href="https://github.com/topics/pysigma"><img src="https://img.shields.io/badge/pysigma-111827?style=flat-square" alt="Topic pysigma"></a>
+  <a href="https://github.com/topics/siem"><img src="https://img.shields.io/badge/siem-111827?style=flat-square" alt="Topic siem"></a>
+  <a href="https://github.com/topics/detection-engineering"><img src="https://img.shields.io/badge/detection--engineering-111827?style=flat-square" alt="Topic detection-engineering"></a>
+  <a href="https://github.com/topics/cybersecurity"><img src="https://img.shields.io/badge/cybersecurity-111827?style=flat-square" alt="Topic cybersecurity"></a>
+  <a href="https://github.com/topics/python"><img src="https://img.shields.io/badge/python-111827?style=flat-square" alt="Topic python"></a>
+  <a href="https://github.com/topics/threat-detection"><img src="https://img.shields.io/badge/threat--detection-111827?style=flat-square" alt="Topic threat-detection"></a>
+  <a href="https://github.com/topics/mitre-attack"><img src="https://img.shields.io/badge/mitre--attack-111827?style=flat-square" alt="Topic mitre-attack"></a>
+  <a href="https://github.com/topics/dfir"><img src="https://img.shields.io/badge/dfir-111827?style=flat-square" alt="Topic dfir"></a>
+  <a href="https://github.com/topics/soc"><img src="https://img.shields.io/badge/soc-111827?style=flat-square" alt="Topic soc"></a>
+</p>
+
+<p align="center">
+  <img src="docs/assets/topics.svg" alt="Sigmwah topics: sigma, wazuh, pysigma, siem, detection-engineering" width="100%">
 </p>
 
 <p align="center">
@@ -31,6 +50,7 @@
   · <a href="#what-converts-and-what-does-not">Coverage</a>
   · <a href="#load-rules-on-wazuh">Deploy</a>
   · <a href="#legal">Legal</a>
+  · <a href="#in-italiano">Italiano</a>
 </p>
 
 ---
@@ -279,3 +299,17 @@ Full third-party notes: [NOTICE](NOTICE). Security contact: [SECURITY.md](SECURI
 **0.1.0** is a first public converter, not a turnkey SOC platform. Convert, read `report.md`, load XML in a lab, and confirm `if_sid` / `if_group` on your Wazuh patch before wide deployment.
 
 Repository: [github.com/Franski6325/sigmwah](https://github.com/Franski6325/sigmwah)
+
+---
+
+## In italiano
+
+Sigmwah converte regole di detection **Sigma** (YAML, tramite pySigma) in regole XML **Wazuh 4.x** (`analysisd`). Non è affiliato a Wazuh Inc. né a SigmaHQ. Le regole SigmaHQ non stanno in questo repo: le scarichi tu, restano sotto DRL 1.1.
+
+Cosa fa bene: match su campi, Windows EventChannel/Sysmon con `if_sid`/`if_group`, Linux/web, correlazione `event_count`, ID persistenti. Cosa non inventa: correlazioni che Wazuh non sa esprimere — finiscono nel report come scarti motivati.
+
+```bash
+git clone https://github.com/Franski6325/sigmwah.git
+cd sigmwah && pip install -e ".[dev]"
+sigmwah convert tests/golden/01_contains.yml -o demo.xml --id-file /tmp/ids.json
+```

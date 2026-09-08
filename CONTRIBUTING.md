@@ -33,10 +33,18 @@ Python **3.11** or **3.12**. Optional Docker is only for `pytest -m docker` / `s
 3. Run ruff, mypy, and `pytest -m "not docker"`.
 4. If you change field mappings, document the Wazuh ruleset file you checked in `docs/mappings.md`.
 
-## GitHub sidebar (About)
+## GitHub sidebar (About, topics, social preview)
 
-The GitHub **Description** field is not a file in git. Maintainer: Settings → General, then paste:
+GitHub **Description** and **Topics** are not stored in git. After `gh auth login`:
+
+```bash
+chmod +x scripts/apply-github-topics.sh
+./scripts/apply-github-topics.sh
+```
+
+Or paste in Settings → General:
 
 - Description: `Convert Sigma detections (pySigma) into Wazuh 4.x analysisd XML. Honest skips, persistent SIDs, no vendored SigmaHQ rules.`
 - Website: `https://github.com/Franski6325/sigmwah`
-- Topics: `sigma`, `wazuh`, `pysigma`, `siem`, `detection-engineering`, `python`
+- Topics: `sigma` `wazuh` `pysigma` `siem` `detection-engineering` `cybersecurity` `python` `threat-detection` `infosec` `xml` `cli` `mitre-attack` `dfir` `soc` `security`
+- Social preview image: `docs/assets/sigmwah-social.png` (1280×640)
